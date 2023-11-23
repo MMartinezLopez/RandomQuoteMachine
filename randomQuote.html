@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      function generate() {
+        const colores = ['#FFD1DC', '#FFB6C1', '#FFA07A', '#FFD700', '#87CEFA', '#98FB98', '#FFECB3', '#DDA0DD', '#F0E68C', '#D8BFD8',"#ffa477", "#acd6d7", "#40b988"];
+        let quotes = [
+          "«No es que el zorro sea atrevío, sino es que las gallinas se van lejos»",
+          "«Todos los pájaros vuelan pero no cantan igual»",
+          "«Ojalá el mar fuera mío, pa dártelo con to’ y pescao»",
+          "«El hombre no vale por el terreno que pisa sino por el horizonte que descubren sus ojos»",
+          "«Lo que pasa es que hay unas que creen que el mundo es de ellas y los demás viven alquilaos, así no es!»",
+          "«Mándenme la tabla que los clavos los pongo yo»",
+          "«Se vuelven como el nido de la paloma, pura paja y cag*»",
+          "«Como Diomedes no hay otro, eso nunca nacería, y si nace no se cría y si se cría se vuelve loco»",
+          "«Diomedes Díaz es el papá, del cantante que tú tienes»",
+          "«Porque sobre de mí, la ropa y las moscas, por imprudentes»",
+          "«Ser rico es mejor»",
+          "«No es que uno se muera, sino lo que dura muerto»",
+          "«Yo no tengo ni tengo ni necesito, pero si me dan, cojo»",
+          "«Jesucristo se murió hace más de 2.000 años… esperarlo?, ese no vuelve más… los evangélicos morirán engañaos»",
+          "«El perro puede ser muy fino, pero es perro»",
+          "«Se hace bien o no se hace na'»",
+          "«Ya los esclavos se acabaron y los vividores van en las mismas, decayendo, decayendo»",
+          "«Al que le gusta el barro, carga el terrón en la mochila y el que le gusta la mujer, no perdona ninguna»",
+          "«Los que van alante, no van lejos si los de atrás se apuran»",
+          "«Vivan los hombres, vivos o muertos pero, vivan los hombres!»",
+          "«No es que sea bonito, pero sabroso si la hemos pasao»",
+          "«Si uno sirviera más muerto que vivo, yo me muriera hoy»",
+          "«Yo a lo único que puedo temerle es al agua, a la luz y a los impuestos»",
+          "«Ahora es que se va a ver cuál es el chivo que más mea»",
+          "«El que tiene pal Whiskey, tiene pal hielo»",
+          "«Tantas penas para un sólo corazón»",
+          "«Según el último diagnóstico médico, por ahora la muerte tendrá que esperar, aleluya»",
+          "«Las vacas pariendo y yo bebiendo»",
+          "«De ahí va pa’ allá, bejuco que se atraviese, machete con él»",
+          "«Vamos a sembrar arroz, porque esto está malo»",
+        ];
+        let quote = quotes[Math.floor(Math.random() * quotes.length)];
+        let color = colores[Math.floor(Math.random() * colores.length)];
+
+        document.body.style.backgroundColor = color;
+        document.getElementById("text").style.color = color;
+        document.getElementById("quote-box").style.color = color;
+        document.getElementById("text").style.border = `1px solid ${color}`;
+        document.getElementById("text").innerHTML = quote;
+        document.getElementById("new-quote").style.border = `1px solid ${color}`;
+        document.getElementById("new-quote").style.color = color;
+
+        let socials=document.getElementsByClassName("share");
+        for (let social of socials){
+            social.style.color=color;
+            social.style.border=`1px solid ${color}`;
+        }
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Machine</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;800&family=IBM+Plex+Mono:ital,wght@1,700&family=Montserrat:wght@700&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/f077be3e7d.js" crossorigin="anonymous"></script>
+    <style>
+      @keyframes vanish {
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {transition: 1s ease-in-out;
+        font-family: Barlow;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+
+      #title {
+        padding: 20px;
+        font-size: 1.2em;
+      }
+
+      .cacique {
+        color: gray;
+      }
+      #quote-box {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        border-radius: 15px;
+        width: 500px;
+        background-color: black;
+      }
+      #text {
+        transition: 0.3 ease-in-out;
+        display: grid;
+        place-items: center;
+        font-family: Quicksand;
+        padding: 20px;
+        width: 80%;
+        border-radius: 10px;
+      }
+      #author {
+        align-self: right;
+        margin-right: 0;
+        padding: 10px;
+      }
+
+      #author::before {
+        content: "-";
+      }
+
+      #new-quote {
+        background-color: transparent;
+        border-radius: 5px;
+        text-transform: uppercase;
+        padding: 10px;
+        font-family: barlow;
+        border: none;
+        box-shadow: none;
+        transition: 0.3s ease-in-out;
+        opacity: 0.5;
+        margin-bottom: 20px;
+      }
+      #new-quote:hover {
+        transition: 0.3s ease-in-out;
+        opacity: 1;
+      }
+
+      #share-box{
+        font-family: quicksand;
+        place-self: center;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        place-items: center;
+        margin-bottom: 20px;
+      }
+      .share {
+        margin-bottom: 20px;
+        width:40px;
+        border-radius: 5px;
+        margin:5px;
+        padding:5px;
+        opacity:0.5;        
+        transition: 0.3s ease-in-out;
+      }
+      .share:hover{
+        opacity:1;
+        transition: 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body onload="generate()">
+    <div id="quote-box">
+      <h1 id="title">
+        <span class="cacique">El Cacique</span> Random Quote Machine
+      </h1>
+      <div id="text"></div>
+      <p id="author">Lil Diome Diaz</p><button id="new-quote" onclick="generate()">new quote <i class="fa-solid fa-arrows-rotate"></i></button>
+      <div id="share-box">Share on: <a class="share" href="twitter.com/intent/tweet" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      <a class="share" id="tweet-quote" href="twitter.com/intent/tweet" target="_blank"><i class="fa-brands fa-tumblr"></i></a></div>
+      
+      
+    </div>
+  </body>
+</html>
