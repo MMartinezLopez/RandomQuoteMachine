@@ -46,7 +46,7 @@
         document.getElementById("text").innerHTML = quote;
         document.getElementById("new-quote").style.border = `1px solid ${color}`;
         document.getElementById("new-quote").style.color = color;
-
+        document.getElementById("twitter-share").href=`https://twitter.com/share?url=${quote}`
         let socials=document.getElementsByClassName("share");
         for (let social of socials){
             social.style.color=color;
@@ -160,8 +160,8 @@
       </h1>
       <div id="text"></div>
       <p id="author">Lil Diome Diaz</p><button id="new-quote" onclick="generate()">new quote <i class="fa-solid fa-arrows-rotate"></i></button>
-      <div id="share-box">Share on: <a class="share" href="twitter.com/intent/tweet" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-      <a class="share" id="tweet-quote" href="twitter.com/intent/tweet" target="_blank"><i class="fa-brands fa-tumblr"></i></a></div>
+      <div id="share-box">Share on: <a class="share" href="https://twitter.com/share?url=<yoururl>" id="twitter-share" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      </div>
       
       
     </div>
